@@ -4,7 +4,8 @@
 
 The AI Project Navigator is a comprehensive tool designed to assist project managers and teams in organizing, tracking, and managing their projects. It leverages AI and machine learning to provide insights, automate tasks, and enhance productivity.
 
-![Bildschirmfoto vom 2024-09-25 15-41-19](https://github.com/user-attachments/assets/97aa5432-64b5-47a5-94bf-0e77a01548b4)
+![Bildschirmfoto vom 2025-02-23 19-36-05](https://github.com/user-attachments/assets/9403592a-b657-44d5-bf41-46343021a7c0)
+
 
 ## Features
 
