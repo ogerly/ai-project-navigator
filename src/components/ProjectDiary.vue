@@ -59,11 +59,12 @@ export default {
   },
   methods: {
     saveDiaryEntry() {
-      console.log('Tagebucheintrag gespeichert:', {
+      const entry = {
         date: this.date,
         entry: this.diaryEntry,
         tags: this.selectedTags
-      });
+      };
+      alert(`Tagebucheintrag gespeichert: ${JSON.stringify(entry)}`);
       this.diaryEntry = '';
       this.selectedTags = [];
     }

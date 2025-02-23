@@ -37,9 +37,13 @@ export default {
   methods: {
     sendToAI() {
       if (this.aiInput.trim() !== '') {
-        this.aiMessages.push({ sender: 'Benutzer', content: this.aiInput, time: 'Jetzt' });
+        const newMessage = { sender: 'Benutzer', content: this.aiInput, time: 'Jetzt' };
+        this.aiMessages.push(newMessage);
+        alert(`Nachricht an KI gesendet: ${JSON.stringify(newMessage)}`);
         setTimeout(() => {
-          this.aiMessages.push({ sender: 'KI', content: 'Ich habe Ihre Anfrage verstanden und arbeite daran.', time: 'Jetzt' });
+          const aiResponse = { sender: 'KI', content: 'Ich habe Ihre Anfrage verstanden und arbeite daran.', time: 'Jetzt' };
+          this.aiMessages.push(aiResponse);
+          alert(`Antwort von KI erhalten: ${JSON.stringify(aiResponse)}`);
         }, 1000);
         this.aiInput = '';
       }

@@ -1,4 +1,3 @@
-<!-- filepath: /home/tulex/Entwicklung/Projekte/dreammall/dreammall-ai-pm-tool/src/components/ProjectChat.vue -->
 <template>
   <v-card class="custom-card">
     <v-card-title>Interner Projekt-Chat</v-card-title>
@@ -44,12 +43,14 @@ export default {
   methods: {
     sendChatMessage() {
       if (this.chatInput.trim() !== '') {
-        this.chatMessages.push({
+        const newMessage = {
           sender: this.currentUser,
           content: this.chatInput,
           time: 'Jetzt',
           room: this.selectedChatRoom
-        });
+        };
+        this.chatMessages.push(newMessage);
+        alert(`Nachricht gesendet: ${JSON.stringify(newMessage)}`);
         this.chatInput = '';
       }
     }

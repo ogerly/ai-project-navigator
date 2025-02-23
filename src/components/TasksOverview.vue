@@ -1,4 +1,3 @@
-<!-- filepath: /home/tulex/Entwicklung/Projekte/dreammall/dreammall-ai-pm-tool/src/components/TasksOverview.vue -->
 <template>
   <v-container>
     <v-card class="custom-card">
