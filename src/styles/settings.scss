@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use 'sass:color';
+
+$material-light: (
+  'primary': $primary-color,
+  'secondary': $secondary-color,
+  'accent': $accent-color,
+  'error': $error-color,
+  'info': $info-color,
+  'success': $success-color,
+  'warning': $warning-color,
+);
+
+$material-dark: (
+  'primary': color.scale($primary-color, $lightness: -20%),
+  'secondary': color.scale($secondary-color, $lightness: -20%),
+  'accent': color.scale($accent-color, $lightness: -20%),
+  'error': color.scale($error-color, $lightness: -20%),
+  'info': color.scale($info-color, $lightness: -20%),
+  'success': color.scale($success-color, $lightness: -20%),
+  'warning': color.scale($warning-color, $lightness: -20%),
+);

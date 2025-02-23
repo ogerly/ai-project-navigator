@@ -26,6 +26,16 @@ const routes = [
     path: '/assistant',
     name: 'assistant',
     component: () => import('../views/AssistantView.vue')
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../views/SettingsView.vue')
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('../views/ProfileSettingsView.vue')
   }
 ]
 

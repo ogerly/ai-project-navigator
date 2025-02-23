@@ -1,31 +1,27 @@
 <template>
-  <v-app>
+  <div id="app">
     <AppBar />
-    <NavigationDrawer />
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-  </v-app>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <NavigationDrawer />
+        </div>
+        <div class="col-9">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import AppBar from './components/AppBar.vue';
 import NavigationDrawer from './components/NavigationDrawer.vue';
-import TopCards from './components/TopCards.vue';
-import TasksOverview from './components/TasksOverview.vue';
-import AIAssistant from './components/AIAssistant.vue';
-import ProjectDiary from './components/ProjectDiary.vue';
-import ProjectChat from './components/ProjectChat.vue';
 
 export default {
   components: {
     AppBar,
-    NavigationDrawer,
-    TopCards,
-    TasksOverview,
-    AIAssistant,
-    ProjectDiary,
-    ProjectChat
+    NavigationDrawer
   }
 };
 </script>

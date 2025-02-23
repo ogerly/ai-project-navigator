@@ -1,28 +1,27 @@
 <template>
-  <v-card class="custom-card">
-    <v-card-title>Interner Projekt-Chat</v-card-title>
-    <v-card-text class="scrollable">
-      <v-list>
-        <v-list-item v-for="(message, index) in chatMessages" :key="index">
-          <v-list-item-content>
-            <v-list-item-title :class="{'font-weight-bold': message.sender === currentUser}">
-              {{ message.sender }}: {{ message.content }}
-            </v-list-item-title>
-            <v-list-item-subtitle>{{ message.time }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-card-text>
-    <v-card-actions>
-      <v-select
-        v-model="selectedChatRoom"
-        :items="chatRooms"
-        label="Chat-Raum auswählen"
-      ></v-select>
-      <v-text-field v-model="chatInput" label="Nachricht eingeben" @keyup.enter="sendChatMessage"></v-text-field>
-      <v-btn color="primary" @click="sendChatMessage">Senden</v-btn>
-    </v-card-actions>
-  </v-card>
+  <div class="card">
+    <div class="card-header">Interner Projekt-Chat</div>
+    <div class="card-body">
+      <div class="mb-4">
+        <div v-for="(message, index) in chatMessages" :key="index"
+          :class="[
+            'p-2 rounded',
+            message.sender === currentUser ? 'bg-primary text-white ml-auto' : 'bg-light text-dark mr-auto'
+          ]"
+        >
+          <strong>{{ message.sender }}:</strong> {{ message.content }}
+          <div class="small text-muted">{{ message.time }}</div>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <select v-model="selectedChatRoom" class="form-select">
+          <option v-for="room in chatRooms" :key="room" :value="room">{{ room }}</option>
+        </select>
+        <input v-model="chatInput" type="text" class="form-control" placeholder="Nachricht eingeben" @keyup.enter="sendChatMessage" />
+        <button class="btn btn-primary" @click="sendChatMessage">Senden</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -50,7 +49,6 @@ export default {
           room: this.selectedChatRoom
         };
         this.chatMessages.push(newMessage);
-        alert(`Nachricht gesendet: ${JSON.stringify(newMessage)}`);
         this.chatInput = '';
       }
     }

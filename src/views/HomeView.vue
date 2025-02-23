@@ -1,40 +1,40 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12" md="6">
-        <v-card class="mb-4">
-          <v-card-title>Tasks Overview</v-card-title>
-          <v-card-text>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">Tasks Overview</div>
+          <div class="card-body">
             <TasksOverview />
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="6">
-        <v-card class="mb-4">
-          <v-card-title>Project Diary</v-card-title>
-          <v-card-text>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">Project Diary</div>
+          <div class="card-body">
             <ProjectDiary />
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="6">
-        <v-card class="mb-4">
-          <v-card-title>AI Assistant</v-card-title>
-          <v-card-text>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">AI Assistant</div>
+          <div class="card-body">
             <AIAssistant />
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="6">
-        <v-card class="mb-4">
-          <v-card-title>Project Chat</v-card-title>
-          <v-card-text>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">Project Chat</div>
+          <div class="card-body">
             <ProjectChat />
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -1,7 +1,12 @@
 <template>
-  <v-container>
-    <ProjectDiary />
-  </v-container>
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">Project Diary</div>
+      <div class="card-body">
+        <ProjectDiary />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

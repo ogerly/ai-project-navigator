@@ -1,24 +1,11 @@
 <template>
-  <v-container>
-    <v-card class="custom-card">
-      <v-card-title>Aufgaben und Fortschritt</v-card-title>
-      <v-card-text class="scrollable">
-        <v-list>
-          <v-list-item v-for="(task, index) in tasks" :key="index">
-            <v-list-item-content>
-              <v-list-item-title>{{ task.title }}</v-list-item-title>
-              <v-list-item-subtitle>
-                Zugewiesen an: {{ task.assignee }} | Fälligkeit: {{ task.dueDate }}
-              </v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-chip :color="getStatusColor(task.status)">{{ task.status }}</v-chip>
-            </v-list-item-action>
-          </v-list-item>
-        </v-list>
-      </v-card-text>
-    </v-card>
-  </v-container>
+  <div class="list-group">
+    <div v-for="(task, index) in tasks" :key="index" class="list-group-item">
+      <h5 class="mb-1">{{ task.title }}</h5>
+      <p class="mb-1">Zugewiesen an: {{ task.assignee }} | Fälligkeit: {{ task.dueDate }}</p>
+      <small><span :class="getStatusColor(task.status)">{{ task.status }}</span></small>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -36,10 +23,10 @@ export default {
   methods: {
     getStatusColor(status) {
       switch(status) {
-        case 'Abgeschlossen': return 'green';
-        case 'In Bearbeitung': return 'orange';
-        case 'Geplant': return 'blue';
-        default: return 'grey';
+        case 'Abgeschlossen': return 'text-success';
+        case 'In Bearbeitung': return 'text-warning';
+        case 'Geplant': return 'text-primary';
+        default: return 'text-muted';
       }
     }
   }

@@ -1,48 +1,23 @@
 <template>
-  <v-container>
-    <v-card class="custom-card">
-      <v-card-title>Projekt-Tagebuch</v-card-title>
-      <v-card-text>
-        <v-menu
-          v-model="menu"
-          :close-on-content-click="false"
-          :nudge-right="40"
-          transition="scale-transition"
-          offset-y
-          min-width="auto"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-text-field
-              v-model="date"
-              label="Datum auswählen"
-              prepend-icon="mdi-calendar"
-              readonly
-              v-bind="attrs"
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-date-picker v-model="date" @input="menu = false"></v-date-picker>
-        </v-menu>
-        <v-textarea
-          v-model="diaryEntry"
-          label="Tageseintrag"
-          hint="Beschreiben Sie Ihre heutigen Aktivitäten, Herausforderungen und Erfolge"
-        ></v-textarea>
-        <v-select
-          v-model="selectedTags"
-          :items="availableTags"
-          label="Tags"
-          multiple
-          chips
-          hint="Wählen Sie relevante Tags für Ihren Eintrag"
-          persistent-hint
-        ></v-select>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn color="primary" @click="saveDiaryEntry">Eintrag speichern</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-container>
+  <div class="container">
+    <form @submit.prevent="saveDiaryEntry">
+      <div class="mb-3">
+        <label for="date" class="form-label">Datum auswählen</label>
+        <input type="date" v-model="date" class="form-control" id="date" />
+      </div>
+      <div class="mb-3">
+        <label for="diaryEntry" class="form-label">Tageseintrag</label>
+        <textarea v-model="diaryEntry" class="form-control" id="diaryEntry" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="tags" class="form-label">Tags</label>
+        <select v-model="selectedTags" class="form-select" id="tags" multiple>
+          <option v-for="tag in availableTags" :key="tag" :value="tag">{{ tag }}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Eintrag speichern</button>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -51,7 +26,6 @@ export default {
   data() {
     return {
       date: new Date().toISOString().substr(0, 10),
-      menu: false,
       diaryEntry: '',
       selectedTags: [],
       availableTags: ['Entwicklung', 'Meeting', 'Problem', 'Lösung', 'Idee', 'Fortschritt']

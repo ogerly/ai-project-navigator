@@ -1,25 +1,24 @@
 <template>
-  <v-container>
-    <v-card class="custom-card">
-      <v-card-title>KI-Assistent</v-card-title>
-      <v-card-text class="scrollable">
-        <v-list>
-          <v-list-item v-for="(message, index) in aiMessages" :key="index">
-            <v-list-item-content>
-              <v-list-item-title :class="{'font-weight-bold': message.sender === 'KI'}">
-                {{ message.sender }}: {{ message.content }}
-              </v-list-item-title>
-              <v-list-item-subtitle>{{ message.time }}</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-card-text>
-      <v-card-actions>
-        <v-text-field v-model="aiInput" label="Frage an den KI-Assistenten" @keyup.enter="sendToAI"></v-text-field>
-        <v-btn color="primary" @click="sendToAI">Senden</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-container>
+  <div class="card">
+    <div class="card-header">KI-Assistent</div>
+    <div class="card-body">
+      <div class="mb-4">
+        <div v-for="(message, index) in aiMessages" :key="index"
+          :class="[
+            'p-2 rounded',
+            message.sender === 'KI' ? 'bg-light text-dark' : 'bg-primary text-white'
+          ]"
+        >
+          <strong>{{ message.sender }}:</strong> {{ message.content }}
+          <div class="small text-muted">{{ message.time }}</div>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <input v-model="aiInput" type="text" class="form-control" placeholder="Frage an den KI-Assistenten" @keyup.enter="sendToAI" />
+        <button class="btn btn-primary" @click="sendToAI">Senden</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -39,11 +38,9 @@ export default {
       if (this.aiInput.trim() !== '') {
         const newMessage = { sender: 'Benutzer', content: this.aiInput, time: 'Jetzt' };
         this.aiMessages.push(newMessage);
-        alert(`Nachricht an KI gesendet: ${JSON.stringify(newMessage)}`);
         setTimeout(() => {
           const aiResponse = { sender: 'KI', content: 'Ich habe Ihre Anfrage verstanden und arbeite daran.', time: 'Jetzt' };
           this.aiMessages.push(aiResponse);
-          alert(`Antwort von KI erhalten: ${JSON.stringify(aiResponse)}`);
         }, 1000);
         this.aiInput = '';
       }

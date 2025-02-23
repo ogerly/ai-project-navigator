@@ -1,28 +1,29 @@
 <template>
-  <div class="max-w-3xl mx-auto px-4">
-    <div class="bg-white shadow rounded-lg p-6">
-      <div class="space-y-4 mb-4">
-        <div v-for="(message, index) in messages" :key="index"
-          :class="[
-            'p-4 rounded-lg',
-            message.type === 'user' ? 'bg-blue-100 ml-12' : 'bg-gray-100 mr-12'
-          ]"
-        >
-          {{ message.content }}
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">Project Chat</div>
+      <div class="card-body">
+        <div class="mb-4">
+          <div v-for="(message, index) in messages" :key="index"
+            :class="[
+              'p-4 rounded',
+              message.type === 'user' ? 'bg-primary text-white ml-auto' : 'bg-light text-dark mr-auto'
+            ]"
+          >
+            {{ message.content }}
+          </div>
         </div>
-      </div>
 
-      <div class="mt-4">
-        <form @submit.prevent="sendMessage" class="flex gap-2">
+        <form @submit.prevent="sendMessage" class="d-flex gap-2">
           <input
             v-model="newMessage"
             type="text"
             placeholder="Ihre Nachricht..."
-            class="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="form-control"
           />
           <button
             type="submit"
-            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="btn btn-primary"
           >
             Senden
           </button>
