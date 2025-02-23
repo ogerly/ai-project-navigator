@@ -1,20 +1,14 @@
 # AI Project Navigator
 
-## Overview
+## Über das Projekt
 
-The AI Project Navigator is a comprehensive tool designed to assist project managers and teams in organizing, tracking, and managing their projects. It leverages AI and machine learning to provide insights, automate tasks, and enhance productivity.
+Das AI Project Navigator ist ein innovatives Konzept, das darauf abzielt, den gesamten Lebenszyklus eines Projekts durch den Einsatz von künstlicher Intelligenz, insbesondere Large Language Models (LLMs), zu optimieren. Von der Ideenfindung bis zur Überwachung von Zielen und Meilensteinen - unser Tool soll die Art und Weise, wie Projekte geplant, durchgeführt und überwacht werden, revolutionieren.
 
-![Bildschirmfoto vom 2025-02-23 19-36-05](https://github.com/user-attachments/assets/9403592a-b657-44d5-bf41-46343021a7c0)
+![Bildschirmfoto vom 2024-09-25 15-41-19](https://github.com/user-attachments/assets/97aa5432-64b5-47a5-94bf-0e77a01548b4)
 
+## Hauptfunktionen
 
-## Features
-
-- **User Management**: Manage users, roles, and permissions.
-- **Project Management**: Create, update, and track projects.
-- **Task Management**: Assign tasks, set deadlines, and track progress.
-- **AI Assistant**: Use AI to generate responses and analyze project data.
-- **Project Diary**: Maintain a daily diary of project activities.
-- **Project Chat**: Communicate with team members in real-time.
+- **KI-Assistent**: Ein intelligenter Assistent, der natürliche Spracheingaben versteht und kontextbezogene Antworten generiert.
 - **Datenanalyse**: LLMs analysieren Projektdaten, Kommunikation und Tagebucheinträge, um Muster und Trends zu erkennen und als Überwacher von Zielen und Teilzielen dienen kann.
 - **Vorhersagen und Empfehlungen**: Basierend auf historischen Daten und aktuellen Trends gibt das System Vorhersagen und Empfehlungen für den Projektverlauf.
 - **Automatisierte Berichterstellung**: Erstellung aussagekräftiger Berichte durch Extraktion und Zusammenfassung relevanter Informationen aus verschiedenen Projektquellen.
@@ -23,142 +17,13 @@ The AI Project Navigator is a comprehensive tool designed to assist project mana
 - **Aufgabenverwaltung**: Umfassende Übersicht und Verwaltung von Projektaufgaben und deren Status.
 - **Finanzplanung**: Detaillierte Übersicht und Prognosen zur finanziellen Situation des Projekts.
 
-## Project Structure
+## Technologie-Stack
 
-```
-PROJECT-ASSISTENT
-├── backend
-│   ├── src
-│   │   ├── controllers      # Controllers for handling requests
-│   │   ├── models           # Mongoose models for MongoDB
-│   │   ├── routes           # Express routes
-│   │   ├── services         # Business logic and services
-│   │   ├── utils            # Utility functions and helpers
-│   │   ├── app.js           # Main application file
-│   │   ├── config.js        # Configuration file
-│   │   └── server.js        # Server setup and initialization
-│   ├── tests                # Test files
-│   ├── .env                 # Environment variables
-│   ├── .gitignore           # Git ignore file
-│   ├── package.json         # npm configuration file
-│   ├── README.md            # Backend documentation
-│   ├── README-backendstructur.md  # Backend structure documentation
-│   └── README-databasestruktur.md # Database structure documentation
-├── src
-│   ├── assets               # Static assets (images, styles, etc.)
-│   ├── components           # Vue components
-│   ├── router               # Vue router configuration
-│   ├── stores               # Pinia stores
-│   ├── views                # Vue views
-│   ├── App.vue              # Main Vue component
-│   ├── main.js              # Main entry point
-│   └── styles               # Stylesheets
-├── .env                     # Environment variables
-├── .gitignore               # Git ignore file
-├── index.html               # Main HTML file
-├── package.json             # npm configuration file
-├── README.md                # Project documentation
-└── vite.config.js           # Vite configuration file
-```
-
-## Installation
-
-To get started with the AI Project Navigator, follow these steps:
-
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/ogerly/ai-project-navigator
-   cd ai-project-navigator
-   ```
-
-2. **Navigate to the backend directory and install dependencies:**
-   ```sh
-   cd backend
-   npm install
-   ```
-
-3. **Set up environment variables for the backend:**
-   Create a `.env` file in the `backend` directory and add the necessary environment variables. For example:
-   ```properties
-   MONGODB_URI=mongodb://localhost:27017/ai-project-navigator
-   PORT=5000
-   OPENAI_API_KEY=your_openai_api_key
-   ```
-
-4. **Run the backend application:**
-   ```sh
-   npm start
-   ```
-
-5. **Navigate to the frontend directory and install dependencies:**
-   ```sh
-   cd ..
-   npm install
-   ```
-
-6. **Set up environment variables for the frontend:**
-   Create a `.env` file in the root directory and add the necessary environment variables. For example:
-   ```properties
-   VITE_OPENAI_API_KEY=your_openai_api_key
-   ```
-
-7. **Run the frontend application:**
-   ```sh
-   npm run dev
-   ```
-
-## API Endpoints
-
-The backend provides several API endpoints for interacting with the application. Here are some of the main endpoints:
-
-### User Management
-
-- **GET /api/users**: Get a list of all users
-- **POST /api/users**: Create a new user
-- **GET /api/users/:id**: Get a user by ID
-- **PUT /api/users/:id**: Update a user by ID
-- **DELETE /api/users/:id**: Delete a user by ID
-
-### Project Management
-
-- **GET /api/projects**: Get a list of all projects
-- **POST /api/projects**: Create a new project
-- **GET /api/projects/:id**: Get a project by ID
-- **PUT /api/projects/:id**: Update a project by ID
-- **DELETE /api/projects/:id**: Delete a project by ID
-
-### Task Management
-
-- **GET /api/tasks**: Get a list of all tasks
-- **POST /api/tasks**: Create a new task
-- **GET /api/tasks/:id**: Get a task by ID
-- **PUT /api/tasks/:id**: Update a task by ID
-- **DELETE /api/tasks/:id**: Delete a task by ID
-
-### AI and Machine Learning
-
-- **POST /api/ai/generate-response**: Generate a response using the AI assistant
-- **POST /api/ai/analyze-data**: Analyze project data using AI
-
-## Testing
-
-To run tests for the backend, use the following command:
-
-```sh
-npm test
-```
-
-## Contributing
-
-We welcome contributions to the AI Project Navigator. If you have any ideas, suggestions, or feedback, please create an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-## Contact
-
-For any questions or inquiries, please contact us at [your-email@example.com].
+- **Frontend**: Vue.js mit Vuetify
+- **Backend**: Node.js mit Express.js
+- **Datenbank**: MongoDB
+- **KI-Integration**: Python-basierte Microservices
+- **API**: RESTful APIs
 
 ## Geplante Drittanbieter-Integrationen (optional)
 
@@ -185,6 +50,78 @@ Wir freuen uns über Beiträge zur Weiterentwicklung dieses Konzepts! Wenn Sie I
 
 Projekt-Link: https://github.com/ogerly/ai-project-navigator
 
+## Project Structure
+
+```
+PROJECT-ASSISTENT
+├── public
+│   ├── index.html        # Main HTML file
+├── src
+│   ├── assets            # Static assets (images, fonts, styles)
+│   ├── components        # Vue components
+│   │   ├── AppBar.vue
+│   │   ├── NavigationDrawer.vue
+│   │   ├── TopCards.vue
+│   │   ├── TasksOverview.vue
+│   │   ├── AIAssistant.vue
+│   │   ├── ProjectDiary.vue
+│   │   └── ProjectChat.vue
+│   ├── views             # Vue views
+│   │   ├── HomeView.vue
+│   │   ├── ChatView.vue
+│   │   ├── TasksView.vue
+│   │   ├── DiaryView.vue
+│   │   └── AssistantView.vue
+│   ├── App.vue           # Root component of the application
+│   ├── main.js           # Entry point of the application
+│   ├── plugins           # Plugin configurations
+│   │   └── vuetify.js
+│   ├── router            # Vue Router configuration
+│   │   └── index.js
+│   ├── stores            # Pinia stores
+│   │   └── ai.js
+├── package.json          # npm configuration file
+├── README.md             # Project documentation
+├── vite.config.js        # Vite configuration file
+└── .env                  # Environment variables
+```
+
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. **Clone the repository:**
+   ```
+   git clone https://github.com/ogerly/ai-project-navigator
+   cd PROJECT-ASSISTENT
+   ```
+
+2. **Install dependencies:**
+   ```
+   npm install
+   ```
+
+3. **Run the application:**
+   ```
+   npm run dev
+   ```
+
+4. **Open your browser:**
+   Navigate to `http://localhost:3000` to see your application in action.
+
+## Building for Production
+
+To build the application for production, run:
+```
+npm run build
+```
+
+This will create a `dist` directory with the production-ready files.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
 ### Create a New Repository
 
 To create a new repository on GitHub, follow these steps:
@@ -205,4 +142,3 @@ git push -u origin main
 ```
 
 This will push your local project to the newly created GitHub repository.
-`

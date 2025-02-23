@@ -1,5 +1,7 @@
 <template>
   <div class="container mt-4">
+    <h1>Home</h1>
+    <p>Database Connection Status: {{ dbStatus }}</p>
     <div class="row">
       <div class="col-md-6 mb-4">
         <div class="card">
@@ -38,12 +40,34 @@
 </template>
 
 <script>
+import axios from 'axios';
 import TasksOverview from '../components/TasksOverview.vue';
 import ProjectDiary from '../components/ProjectDiary.vue';
 import AIAssistant from '../components/AIAssistant.vue';
 import ProjectChat from '../components/ProjectChat.vue';
 
 export default {
+  name: 'HomeView',
+  data() {
+    return {
+      dbStatus: 'Checking...'
+    };
+  },
+  created() {
+    this.checkDbConnection();
+  },
+  methods: {
+    async checkDbConnection() {
+      try {
+        const response = await axios.get('/api/health');
+        console.log('Database connection status:', response.data.status);
+        this.dbStatus = response.data.status;
+      } catch (error) {
+        this.dbStatus = 'Error';
+        console.error('Failed to check database connection:', error);
+      }
+    }
+  },
   components: {
     TasksOverview,
     ProjectDiary,

@@ -131,7 +131,115 @@ To set up the MongoDB database, follow these steps:
    db.chatMessages.createIndex({ room: 1 })
    ```
 
-With this `README-databasestruktur.md` file, the database structure and setup instructions are clearly documented. If you encounter any issues or need further assistance, please let me know!
-````
+## MongoDB Installation on Pop!_OS
 
-With this `README-databasestruktur.md` file, the database structure and setup instructions are clearly documented. If you encounter any issues or need further assistance, please let me know!
+### 1. Add MongoDB Repository
+
+MongoDB is not included in the default Ubuntu repositories. Therefore, you need to add the official MongoDB repository.
+
+```bash
+# Add MongoDB GPG key
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | sudo tee /usr/share/keyrings/mongodb-server-key.asc
+
+# Add the repository to the package list
+echo "deb [signed-by=/usr/share/keyrings/mongodb-server-key.asc] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+```
+
+### 2. Update Package Lists and Install MongoDB
+
+```bash
+sudo apt update
+sudo apt install -y mongodb-org
+```
+
+### 3. Start and Enable MongoDB Service
+
+```bash
+# Start MongoDB
+sudo systemctl start mongod
+
+# Enable MongoDB to start on boot
+sudo systemctl enable mongod
+
+# Check the status
+sudo systemctl status mongod
+```
+
+If the service does not start, you can start `mongod` manually:
+
+```bash
+sudo mongod --fork --logpath /var/log/mongodb.log --dbpath /var/lib/mongodb
+```
+
+### 4. Test the Installation
+
+```bash
+mongosh
+```
+
+If `mongosh` is not installed, you can install it:
+
+```bash
+sudo apt install -y mongodb-mongosh
+```
+
+### 5. Secure MongoDB (Optional)
+
+#### Create Admin User
+
+```javascript
+use admin
+db.createUser({
+    user: "admin",
+    pwd: "secure_password",
+    roles: [{ role: "root", db: "admin" }]
+})
+```
+
+#### Enable Authentication in Configuration File
+
+```bash
+sudo nano /etc/mongod.conf
+```
+
+Add the following:
+
+```
+security:
+  authorization: enabled
+```
+
+Restart MongoDB:
+
+```bash
+sudo systemctl restart mongod
+```
+
+Log in with:
+
+```bash
+mongosh -u admin -p --authenticationDatabase admin
+```
+
+### 6. Configure Firewall (Optional)
+
+If MongoDB is to be used over the network:
+
+```bash
+sudo ufw allow 27017/tcp
+```
+
+If only locally:
+
+```bash
+sudo ufw deny 27017/tcp
+```
+
+## Uninstall MongoDB (If Needed)
+
+```bash
+sudo systemctl stop mongod
+sudo apt purge mongodb-org -y
+sudo rm -r /var/log/mongodb /var/lib/mongodb
+```
+
