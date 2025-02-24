@@ -41,7 +41,7 @@ To get started with the backend, follow these steps:
 3. **Set up environment variables:**
    Create a `.env` file in the `backend` directory and add the necessary environment variables. For example:
    ```properties
-   MONGODB_URI=mongodb://localhost:27017/ai-project-navigator
+   MONGODB_URI=mongodb://admin:secure_password@localhost:27017/ai-project-navigator?authSource=admin
    PORT=5000
    OPENAI_API_KEY=your_openai_api_key
    ```
