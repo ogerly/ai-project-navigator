@@ -3,7 +3,6 @@
 This file provides guidelines and best practices for using GitHub Copilot as part of our project workflow.
 
 ## Purpose
-
 - Ensure consistent prompts and instructions during development.
 - Enable a streamlined coding approach by leveraging Copilot suggestions effectively.
 
@@ -43,11 +42,9 @@ This file provides guidelines and best practices for using GitHub Copilot as par
    - Document major flows and data models in the code where applicable, aiding both team members and automated tools.
 
 ## Example Prompting Style
-
 - "Create a new function in logger.js to format log entries as JSON."
 - "In tasks.js, add a route that returns a list of tasks with status fields."
 
 ## Updating This Guide
-
 If new team members join or we adopt new practices, update this file accordingly. Keep it concise so it remains easy to consult.
 

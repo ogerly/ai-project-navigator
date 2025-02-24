@@ -164,3 +164,6 @@ git push -u origin main
 ```
 
 This will push your local project to the newly created GitHub repository.
+
+## Additional Resources
+- Refer to [TEAM_COPILOT_GUIDE.md](TEAM_COPILOT_GUIDE.md) for internal guidelines on using GitHub Copilot.
