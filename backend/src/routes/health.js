@@ -7,8 +7,10 @@ router.get('/', async (req, res) => {
   try {
     const state = mongoose.connection.readyState;
     const status = state === 1 ? 'connected' : 'disconnected';
+    console.log(`Database connection status: ${status}`);
     res.json({ status });
   } catch (error) {
+    console.error('Error checking database connection:', error);
     res.status(500).json({ status: 'error', message: error.message });
   }
 });
