@@ -1,108 +1,110 @@
 # AI Project Navigator Backend
 
-## Overview
+## Übersicht
 
-The backend of the AI Project Navigator is designed to handle the server-side logic, data processing, and API endpoints for the application. It is built using Node.js with Express.js and integrates with MongoDB for data storage. Additionally, Python-based microservices are used for AI and machine learning functionalities.
+Das Backend des AI Project Navigators ist darauf ausgelegt, die serverseitige Logik, Datenverarbeitung und API-Endpunkte für die Anwendung zu verwalten. Es wurde mit Node.js und Express.js entwickelt und integriert MongoDB für die Datenspeicherung. Zusätzlich werden Python-basierte Microservices für KI- und maschinelle Lernfunktionen verwendet.
 
-## Directory Structure
+## Verzeichnisstruktur
 
 ```
 backend
 ├── src
-│   ├── controllers      # Controllers for handling requests
-│   ├── models           # Mongoose models for MongoDB
-│   ├── routes           # Express routes
-│   ├── services         # Business logic and services
-│   ├── utils            # Utility functions and helpers
-│   ├── app.js           # Main application file
-│   ├── config.js        # Configuration file
-│   └── server.js        # Server setup and initialization
-├── tests                # Test files
-├── .env                 # Environment variables
-├── .gitignore           # Git ignore file
-├── package.json         # npm configuration file
-└── README.md            # Project documentation
+│   ├── controllers      # Controller zur Handhabung von Anfragen
+│   ├── models           # Mongoose-Modelle für MongoDB
+│   ├── routes           # Express-Routen
+│   ├── services         # Geschäftslogik und Services
+│   ├── utils            # Hilfsfunktionen und Helfer
+│   ├── app.js           # Hauptanwendungsdatei
+│   ├── config.js        # Konfigurationsdatei
+│   └── server.js        # Server-Setup und Initialisierung
+├── tests                # Testdateien
+├── .env                 # Umgebungsvariablen
+├── .gitignore           # Git Ignore Datei
+├── package.json         # npm Konfigurationsdatei
+└── README.md            # Projektdokumentation
 ```
 
 ## Installation
 
-To get started with the backend, follow these steps:
+Um mit dem Backend zu beginnen, folgen Sie diesen Schritten:
 
-1. **Navigate to the backend directory:**
+1. **Wechseln Sie in das Backend-Verzeichnis:**
    ```sh
    cd backend
    ```
 
-2. **Install dependencies:**
+2. **Installieren Sie die Abhängigkeiten:**
    ```sh
    npm install
    ```
 
-3. **Set up environment variables:**
-   Create a `.env` file in the `backend` directory and add the necessary environment variables. For example:
+3. **Richten Sie die Umgebungsvariablen ein:**
+   Erstellen Sie eine `.env`-Datei im `backend`-Verzeichnis und fügen Sie die erforderlichen Umgebungsvariablen hinzu. Zum Beispiel:
    ```properties
    MONGODB_URI=mongodb://admin:secure_password@localhost:27017/ai-project-navigator?authSource=admin
    PORT=5000
    OPENAI_API_KEY=your_openai_api_key
    ```
 
-4. **Run the application:**
+4. **Starten Sie die Anwendung:**
    ```sh
    npm start
    ```
 
-## API Endpoints
+## API-Endpunkte
 
-The backend provides several API endpoints for interacting with the application. Here are some of the main endpoints:
+Das Backend bietet mehrere API-Endpunkte zur Interaktion mit der Anwendung. Hier sind einige der wichtigsten Endpunkte:
 
-### User Management
+### Benutzerverwaltung
 
-- **GET /api/users**: Get a list of all users
-- **POST /api/users**: Create a new user
-- **GET /api/users/:id**: Get a user by ID
-- **PUT /api/users/:id**: Update a user by ID
-- **DELETE /api/users/:id**: Delete a user by ID
+- **GET /api/users**: Liste aller Benutzer abrufen
+- **POST /api/users**: Neuen Benutzer erstellen
+- **GET /api/users/:id**: Benutzer nach ID abrufen
+- **PUT /api/users/:id**: Benutzer nach ID aktualisieren
+- **DELETE /api/users/:id**: Benutzer nach ID löschen
 
-### Project Management
+### Projektverwaltung
 
-- **GET /api/projects**: Get a list of all projects
-- **POST /api/projects**: Create a new project
-- **GET /api/projects/:id**: Get a project by ID
-- **PUT /api/projects/:id**: Update a project by ID
-- **DELETE /api/projects/:id**: Delete a project by ID
+- **GET /api/projects**: Liste aller Projekte abrufen
+- **POST /api/projects**: Neues Projekt erstellen
+- **GET /api/projects/:id**: Projekt nach ID abrufen
+- **PUT /api/projects/:id**: Projekt nach ID aktualisieren
+- **DELETE /api/projects/:id**: Projekt nach ID löschen
 
-### Task Management
+### Aufgabenverwaltung
 
-- **GET /api/tasks**: Get a list of all tasks
-- **POST /api/tasks**: Create a new task
-- **GET /api/tasks/:id**: Get a task by ID
-- **PUT /api/tasks/:id**: Update a task by ID
-- **DELETE /api/tasks/:id**: Delete a task by ID
+- **GET /api/tasks**: Liste aller Aufgaben abrufen
+- **POST /api/tasks**: Neue Aufgabe erstellen
+- **GET /api/tasks/:id**: Aufgabe nach ID abrufen
+- **PUT /api/tasks/:id**: Aufgabe nach ID aktualisieren
+- **DELETE /api/tasks/:id**: Aufgabe nach ID löschen
 
-### AI and Machine Learning
+### Kalenderverwaltung
 
-- **POST /api/ai/generate-response**: Generate a response using the AI assistant
-- **POST /api/ai/analyze-data**: Analyze project data using AI
+- **GET /api/events**: Liste aller Kalendereinträge abrufen
+- **POST /api/events**: Neuen Kalendereintrag erstellen
 
-## Testing
+### KI und Maschinelles Lernen
 
-To run tests for the backend, use the following command:
+- **POST /api/ai/generate-response**: Antwort mit dem KI-Assistenten generieren
+- **POST /api/ai/analyze-data**: Projektdaten mit KI analysieren
+
+## Tests
+
+Um Tests für das Backend auszuführen, verwenden Sie den folgenden Befehl:
 
 ```sh
 npm test
 ```
 
-## Contributing
+## Beitrag leisten
 
-We welcome contributions to the AI Project Navigator backend. If you have any ideas, suggestions, or feedback, please create an issue or submit a pull request.
+Wir begrüßen Beiträge zum AI Project Navigator Backend. Wenn Sie Ideen, Vorschläge oder Feedback haben, erstellen Sie bitte ein Issue oder reichen Sie einen Pull-Request ein.
 
-## License
+## Lizenz
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe die LICENSE-Datei für weitere Details.
 
-## Contact
+## Kontakt
 
-For any questions or inquiries, please contact us at [your-email@example.com].
-````
-
-With this `README.md` file, the backend structure and setup instructions are clearly documented. If you encounter any issues or need further assistance, please let me know!
+Für Fragen oder Anfragen kontaktieren Sie uns bitte unter [your-email@example.com].

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import CalendarView from '../views/CalendarView.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: () => import('../views/ProfileSettingsView.vue')
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: CalendarView
   }
 ]
 

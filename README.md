@@ -20,7 +20,7 @@ Das AI Project Navigator ist ein innovatives Konzept, das darauf abzielt, den ge
 
 ## Technologie-Stack
 
-- **Frontend**: Vue.js mit Vuetify
+- **Frontend**: Vue.js mit Bootstrap 5 
 - **Backend**: Node.js mit Express.js
 - **Datenbank**: MongoDB
 - **KI-Integration**: Python-basierte Microservices
@@ -75,8 +75,6 @@ PROJECT-ASSISTENT
 │   │   └── AssistantView.vue
 │   ├── App.vue           # Root component of the application
 │   ├── main.js           # Entry point of the application
-│   ├── plugins           # Plugin configurations
-│   │   └── vuetify.js
 │   ├── router            # Vue Router configuration
 │   │   └── index.js
 │   ├── stores            # Pinia stores

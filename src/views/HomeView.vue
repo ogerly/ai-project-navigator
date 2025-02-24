@@ -1,15 +1,7 @@
 <template>
   <div class="container mt-4">
     <h1>Home</h1>
-    <p>
-      Database Connection Status: 
-      <span :class="{'text-success': dbStatus === 'connected', 'text-danger': dbStatus !== 'connected'}">
-        {{ dbStatus }}
-      </span>
-      <button @click="checkDbConnection" class="btn btn-sm btn-outline-secondary ms-2">
-        Refresh
-      </button>
-    </p>
+    <p>Database Connection Status: {{ dbStatus }}</p>
     <div class="row">
       <div class="col-md-6 mb-4">
         <div class="card">
@@ -43,6 +35,18 @@
           </div>
         </div>
       </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">Kalender</div>
+          <div class="card-body">
+            <ul>
+              <li v-for="event in events" :key="event.id">
+                {{ event.date }} - {{ event.title }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -60,12 +64,14 @@ export default {
   data() {
     return {
       dbStatus: 'Checking...',
-      statusCheckInterval: null
+      statusCheckInterval: null,
+      events: []
     };
   },
   created() {
     this.checkDbConnection();
     this.statusCheckInterval = setInterval(this.checkDbConnection, 30000);
+    this.fetchEvents();
   },
   beforeDestroy() {
     if (this.statusCheckInterval) {
@@ -82,6 +88,14 @@ export default {
       } catch (error) {
         console.error('DB connection error details:', error.response || error);
         this.dbStatus = 'Error';
+      }
+    },
+    async fetchEvents() {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/events`);
+        this.events = response.data;
+      } catch (error) {
+        console.error('Failed to fetch events:', error);
       }
     }
   },
