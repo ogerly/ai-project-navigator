@@ -7,6 +7,7 @@ import logger from './middleware/logger.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import logsRouter from './routes/logs.js';
+import { logMessage } from './utils/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,6 +20,12 @@ app.use(express.json());
 app.use(logger);
 app.use('/api', routes);
 app.use('/logs', logsRouter);
+
+// Global Error Handling Middleware
+app.use((err, req, res, next) => {
+  logMessage(`Unhandled Error: ${err.message}`);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
 
 mongoose.connect(config.mongodbUri, {
   useNewUrlParser: true,
