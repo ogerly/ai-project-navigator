@@ -47,6 +47,18 @@
           </div>
         </div>
       </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">Recent Logs</div>
+          <div class="card-body">
+            <ul>
+              <li v-for="log in recentLogs" :key="log.id">
+                {{ log.timestamp }} - {{ log.message }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -65,13 +77,15 @@ export default {
     return {
       dbStatus: 'Checking...',
       statusCheckInterval: null,
-      events: []
+      events: [],
+      recentLogs: []
     };
   },
   created() {
     this.checkDbConnection();
     this.statusCheckInterval = setInterval(this.checkDbConnection, 30000);
     this.fetchEvents();
+    this.fetchRecentLogs();
   },
   beforeDestroy() {
     if (this.statusCheckInterval) {
@@ -96,6 +110,14 @@ export default {
         this.events = response.data;
       } catch (error) {
         console.error('Failed to fetch events:', error);
+      }
+    },
+    async fetchRecentLogs() {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/logs?limit=10`);
+        this.recentLogs = response.data;
+      } catch (error) {
+        console.error('Failed to fetch recent logs:', error);
       }
     }
   },

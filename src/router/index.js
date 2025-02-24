@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CalendarView from '../views/CalendarView.vue'
+import LoggerView from '../views/LoggerView.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/calendar',
     name: 'calendar',
     component: CalendarView
+  },
+  {
+    path: '/logger',
+    name: 'logger',
+    component: LoggerView
   }
 ]
 

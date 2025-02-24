@@ -31,8 +31,17 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/calendar">Kalender</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/logger">Logger</router-link>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  name: 'AppBar'
+};
+</script>
