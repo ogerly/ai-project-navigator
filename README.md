@@ -17,6 +17,7 @@ Das AI Project Navigator ist ein innovatives Konzept, das darauf abzielt, den ge
 - **Interner Chat**: Integriertes Kommunikationstool für effiziente Teamzusammenarbeit.
 - **Aufgabenverwaltung**: Umfassende Übersicht und Verwaltung von Projektaufgaben und deren Status.
 - **Finanzplanung**: Detaillierte Übersicht und Prognosen zur finanziellen Situation des Projekts.
+- **Logger**: Ein globales Protokollierungssystem, das alle Anfragen und Antworten in eine Protokolldatei schreibt.
 
 ## Technologie-Stack
 
@@ -107,6 +108,28 @@ To get started with this project, follow these steps:
 
 4. **Open your browser:**
    Navigate to `http://localhost:3000` to see your application in action.
+
+## Logging System
+
+The project includes a global logging system that logs all incoming requests and outgoing responses to a log file. This helps in monitoring and debugging the application.
+
+### Usage
+
+The logging system is implemented as middleware and a utility function. The middleware logs all requests and responses, while the utility function can be used to log custom messages from anywhere in the project.
+
+#### Middleware
+
+The middleware is located at `backend/src/middleware/logger.js` and is used to log all incoming requests and outgoing responses.
+
+
+#### Utility Function
+
+The utility function is located at `backend/src/utils/logger.js` and can be used to log custom messages.
+
+### Viewing Logs
+
+Logs can be viewed by accessing the `/logs` endpoint. The logs are displayed in a readable format.
+
 
 ## Building for Production
 
