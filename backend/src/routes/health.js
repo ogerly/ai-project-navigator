@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/health', async (req, res) => {
   try {
     const state = mongoose.connection.readyState;
     const status = state === 1 ? 'connected' : 'disconnected';

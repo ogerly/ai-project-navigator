@@ -4,7 +4,13 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const logFilePath = path.join(__dirname, '../../logs', 'app.log');
+const logDir = path.join(__dirname, '../../logs');
+const logFilePath = path.join(logDir, 'app.log');
+
+// Ensure the log directory exists
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
 
 export const logMessage = (message) => {
   const logEntry = `${new Date().toISOString()} - ${message}\n`;
