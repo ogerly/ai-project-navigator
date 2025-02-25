@@ -9,13 +9,14 @@ import { fileURLToPath } from 'url';
 import logsRouter from './routes/logs.js';
 import dbTestRouter from './routes/dbTest.js';
 import healthRouter from './routes/health.js';
+import eventsRouter from './routes/events.js'; // Importieren der Events-Route
 import { logMessage } from './utils/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = config.port;
+const PORT = 4000; // Backend-Server läuft auf Port 4000
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +24,13 @@ app.use(logger);
 app.use('/api', routes);
 app.use('/logs', logsRouter);
 app.use('/dbtest', dbTestRouter);
-app.use('/health', healthRouter); // New route for health check
+app.use('/health', healthRouter); // Verwenden der Health-Route
+app.use('/events', eventsRouter); // Verwenden der Events-Route
+
+// Route für "Server is running"
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
 
 // Global Error Handling Middleware
 app.use((err, req, res, next) => {

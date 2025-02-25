@@ -34,5 +34,8 @@ export default defineConfig({
         entryFileNames: 'assets/js/[name]-[hash].js'
       }
     }
+  },
+  server: {
+    port: 5173 // Standardport für Vite
   }
 })
